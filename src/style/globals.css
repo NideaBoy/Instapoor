@@ -63,6 +63,7 @@ body{
 
 main {
   overflow-y: auto;
+  grid-row: 1 /-1;
 }
 
 
@@ -85,3 +86,10 @@ main {
   }
 }
 
+
+@media (max-width: 767px) {
+  main {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+}
