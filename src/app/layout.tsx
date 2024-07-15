@@ -1,6 +1,6 @@
-import Aside from "@/components/Aside"
+import MenuAside from "@/components/MenuAside"
 import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import MenuFooter from "@/components/MenuFooter";
 import type { Metadata } from "next";
 import "@/style/globals.css";
 
@@ -22,9 +22,9 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Header/>
-        <Aside />
+        <MenuAside />
         {children}
-        <Footer/>
+        <MenuFooter/>
       </body>
     </html>
   );
