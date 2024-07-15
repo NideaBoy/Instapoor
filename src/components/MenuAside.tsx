@@ -68,7 +68,7 @@ export default function Aside() {
                         </a>
                     </li>
                     <li className={style.sidebar__item}>
-                        <a href="#" className={style.sidebar__link} target='_blank'>
+                        <a href="https://github.com/NideaBoy/Instapoor" className={style.sidebar__link} target='_blank' rel='noopener'>
                             <img src="https://avatars.githubusercontent.com/u/75509927?v=4&size=64" alt="Icono de perfil de github" />
                             <span>Repositorio</span>
                         </a>
