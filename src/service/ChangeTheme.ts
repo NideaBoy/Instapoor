@@ -1,17 +1,17 @@
 import { useState, useEffect  } from 'react';
-
+import { useColoMenu } from '@/store/theme';
+ 
 export default function ChangeTheme() {
-    const [colorScheme, setColorScheme] = useState('');
-
+    const {colorScheme, setColor, toggleColor}=useColoMenu()
     useEffect(() => {
         const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
         if(localStorage.getItem("theme") === null) {
             localStorage.setItem("theme", mediaQuery.matches ? 'dark' : 'light')
         }
-        setColorScheme(localStorage.getItem("theme") as string);
+        setColor(localStorage.getItem("theme") as string);
     
         const handleColorSchemeChange = (e: any) => {
-          setColorScheme(e.matches ? 'dark' : 'light');
+          setColor(e.matches ? 'dark' : 'light');
     
         };
     
@@ -22,7 +22,7 @@ export default function ChangeTheme() {
         };
       }, []);
       const toggleColorScheme = () => {
-        setColorScheme((prevScheme) => (prevScheme === 'light' ? 'dark' : 'light'));
+        toggleColor()
         localStorage.setItem("theme", colorScheme == 'light'  ? 'dark' : 'light')
       };
       useEffect(() => {
@@ -31,7 +31,6 @@ export default function ChangeTheme() {
 
       return {
         colorScheme,
-        setColorScheme,
         toggleColorScheme
       }
 }
