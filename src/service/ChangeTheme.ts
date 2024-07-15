@@ -1,4 +1,4 @@
-import { useState, useEffect  } from 'react';
+import { useEffect  } from 'react';
 import { useColoMenu } from '@/store/theme';
  
 export default function ChangeTheme() {
