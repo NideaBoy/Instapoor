@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Inter } from 'next/font/google';
 import { usePathname } from 'next/navigation'
 import { AiFillHome, AiOutlineSearch, AiOutlineCompass, AiOutlineHome, AiFillCompass } from "react-icons/ai";
+import { IoIosCreate } from "react-icons/io";
 import { CiSun } from "react-icons/ci";
 import { FaMoon } from "react-icons/fa";
 import Image from 'next/image';
@@ -51,6 +52,12 @@ export default function Aside() {
                         <button className={`${style.sidebar__link} ${isOpen ? "clicked" : ""}`} onClick={()=>onOpen(!isOpen)}>
                             <i className={style.sidebar__icon}><AiOutlineSearch  /></i>
                             <span>Buscar</span>
+                        </button>
+                    </li>
+                    <li className={style.sidebar__item}>
+                        <button className={style.sidebar__link}>
+                            <i className={style.sidebar__icon}><IoIosCreate  /></i>
+                            <span>Crear</span>
                         </button>
                     </li>
                     <li className={style.sidebar__item}>

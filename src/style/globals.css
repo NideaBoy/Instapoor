@@ -70,7 +70,9 @@ main {
 
 
 @media (max-width: 1263px) {
-  
+  body {
+    grid-template-columns: 4rem 1fr;
+  }
   .logo {
     display: none;
   }
