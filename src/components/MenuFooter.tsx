@@ -21,7 +21,7 @@ export default function Footer() {
                 <i className={style.footer__icon}>{pathname === "/explore" ? <AiFillCompass/> : <AiOutlineCompass/>}</i>
                 </a></li>
                 <li className={style.footer__item}><i className={style.footer__icon}><IoIosCreate/></i></li>
-                <li className={style.footer__item}><a href="#" className={style.footer__link} target='_blank' >
+                <li className={style.footer__item}><a href="https://github.com/NideaBoy/Instapoor" className={style.footer__link} target='_blank' rel='noopener' >
                             <img src="https://avatars.githubusercontent.com/u/75509927?v=4&size=64" alt="Icono de perfil de github" />
                         </a></li>
                 <li className={style.footer__item}><i className={style.footer__icon} onClick={toggleColorScheme}>{colorScheme === 'light' ? <CiSun/>: <FaMoon/>}</i></li>
