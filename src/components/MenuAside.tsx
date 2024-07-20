@@ -30,13 +30,13 @@ export default function Aside() {
             <header className={style.sidebar__header}>
                 <a href="/" title='Logo de instapoor'>
                 <picture className="logo__small">
-                        <Image src={colorScheme == "light" ? Logo.SmallLight : Logo.SmallDark} alt="Logo de instapoor corto" width={32}  height={32}/>
+                        <Image src={colorScheme == "light" ? Logo.SmallLight : Logo.SmallDark} alt="Logo de instapoor corto" width={32}  height={32} priority={true}/>
                 </picture>
                 <picture className={`logo__small ${isOpen ? 'logo__small-close' : ""}`}>
-                        <Image src={colorScheme == "light" ? Logo.SmallLight : Logo.SmallDark} alt="Logo de instapoor corto" width={32}  height={32}/>
+                        <Image src={colorScheme == "light" ? Logo.SmallLight : Logo.SmallDark} alt="Logo de instapoor corto" width={32}  height={32} priority={true}/>
                 </picture>
                     <picture className={`logo ${isOpen ? 'logo-close' : ""}`}>
-                        <Image src={colorScheme == "light" ? Logo.Light : Logo.Dark} alt="Logo de instapoor" width={136}  height={32}/>
+                        <Image src={colorScheme == "light" ? Logo.Light : Logo.Dark} alt="Logo de instapoor" width={136}  height={32} priority={true}/>
                     </picture>
                 </a>
             </header>
