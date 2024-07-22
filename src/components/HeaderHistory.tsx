@@ -1,5 +1,5 @@
 "use client"
-import { ReactNode, useRef, useState } from "react"
+import { ReactNode, useEffect, useRef, useState } from "react"
 import { AiFillCaretLeft as LeftIcon, AiFillCaretRight as RightIcon } from "react-icons/ai";
 import styles from "@/style/Home.module.css"
 
@@ -12,6 +12,34 @@ export default function HeaderHistory({ children }: Props) {
     const [maxSize, setMaxSize] = useState<number>()
     const historyRef = useRef<HTMLDivElement>(null);
 
+    useEffect(() => {
+        if (historyRef.current) {
+            let history = historyRef.current
+            let maxScroll = history.scrollWidth - history.clientWidth;
+            setMaxSize(maxScroll)
+            if (history.clientWidth >= history.scrollWidth) {
+                setScroll(maxScroll)
+            }
+            window.addEventListener("resize", () => {
+                maxScroll = history.scrollWidth - history.clientWidth;
+                setMaxSize(maxScroll)
+                setScroll(history.scrollLeft)
+                if (history.scrollLeft > maxScroll) {
+                    setScroll(maxScroll)
+                }
+            })
+            history.addEventListener("scroll", () => {
+                maxScroll = history.scrollWidth - history.clientWidth;
+                setMaxSize(maxScroll)
+                setScroll(history.scrollLeft)
+                if (history.scrollLeft >= (maxScroll - 20)) {
+                    setScroll(maxScroll)
+                }
+
+
+            })
+        }
+    }, [])
     function down() {
         let resolve = scroll - 300
         let res = Math.max(resolve, 0)
