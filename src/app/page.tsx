@@ -1,8 +1,9 @@
+import { Suspense, lazy } from "react";
 import { Inter } from "next/font/google";
-import styles from "@/style/Home.module.css";
 import { cnn } from "@/service/cnn";
-import Profile from "@/interface/IProfile";
 import HeaderHistory from "@/components/HeaderHistory";
+import IProfile from "@/interface/IProfile";
+import styles from "@/style/Home.module.css";
 
 const inter = Inter({
   display: "block",
@@ -11,23 +12,26 @@ const inter = Inter({
 })
 
 export default async function Home() {
-  const res = await cnn.get("/users")
+  const PostContent = lazy(() => import("@/components/PostContent"))
+  const profile = await cnn.get("/users")
 
-  console.log(res.data[0].id.machine)
   return (
-    <main>
+    <main className={inter.className}>
       <HeaderHistory>
         <ul className={styles.history__list}>
-          {res.data.map((i: Profile) =>
+          {profile.data.map((i: IProfile) =>
             <li key={crypto.randomUUID()}>
               <a href={`#history/${i.identify}`} title={i.username} className={`${styles.history__link} ${i.history ? styles["history__link-history"] : ""}`}>
-                <img src={`${process.env.API_URL}${i.picture}`} alt={i.username} />
+                <img src={`${process.env.NEXT_PUBLIC_API_BASE_URL}${i.picture}`} alt={i.username} />
                 <span className={inter.className}>{i.username}</span>
               </a>
             </li>
           )}
         </ul>
       </HeaderHistory>
+      <Suspense fallback={<h1 >Hola</h1>}>
+        <PostContent />
+      </Suspense>
     </main>
   );
 }
