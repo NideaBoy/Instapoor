@@ -7,7 +7,7 @@ This proyect is for try clone instagram
 ## Run the proyect
 
 ```bash
-pnpm dev
+pnpm install
 # and
 pnpm dev
 
