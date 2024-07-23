@@ -1,5 +1,5 @@
 # Instapoor
-
+![Instapoor logo](/public/img/Instagram.png)
 This proyect is for try clone instagram
 
 ## Run the proyect
