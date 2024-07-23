@@ -1,6 +1,6 @@
 "use client"
 import { ReactNode, useEffect, useRef, useState } from "react"
-import { AiFillCaretLeft as LeftIcon, AiFillCaretRight as RightIcon } from "react-icons/ai";
+import { ButtonLeft, ButtonRight } from "./ButtonMenu";
 import styles from "@/style/Home.module.css"
 
 interface Props {
@@ -67,10 +67,13 @@ export default function HeaderHistory({ children }: Props) {
     }
 
     return <header className={styles.history} role="menu" >
-        <button id="left" className={`${styles.slider__button} ${scroll == 0 ? styles.close : ""}`} onClick={down}><i><LeftIcon /></i></button>
+        <ButtonLeft className={scroll == 0 ? styles.close : ""} onClick={down} />
+
         <div className={styles.history__slider} ref={historyRef}>
             {children}
         </div>
-        <button id="right" className={`${styles.slider__button} ${scroll == maxSize ? styles.close : ""}`} onClick={up}><i><RightIcon /></i></button>
+
+        <ButtonRight className={scroll == maxSize ? styles.close : ""} onClick={up} />
+
     </header>
 }
