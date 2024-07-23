@@ -1,0 +1,45 @@
+.alt {
+    color: var(--font-color);
+}
+
+.container {
+    align-items: center;
+    position: relative;
+    flex-direction: column;
+    display: flex;
+}
+
+.content {
+    align-items: center;
+    position: relative;
+    overflow-x: auto;
+    display: flex;
+    width: 23rem;
+
+    & img,
+    video {
+        object-fit: cover;
+        max-height: 30rem;
+        width: 23rem;
+    }
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.button-left {
+    left: 0.2rem;
+}
+
+.button-right {
+    right: 0.2rem;
+}
+
+.button-left,
+.button-right {
+    position: absolute;
+    z-index: 1;
+}
