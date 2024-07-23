@@ -1,7 +1,9 @@
 import axios from "axios";
 
+
+
 export const cnn = axios.create({
-    baseURL: process.env.API_URL,
+    baseURL: process.env.NEXT_PUBLIC_API_BASE_URL,
     headers: {
         Accept: "application/json"
     }
