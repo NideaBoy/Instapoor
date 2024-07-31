@@ -7,6 +7,60 @@
     position: relative;
     flex-direction: column;
     display: flex;
+    margin-bottom: 1rem;
+}
+
+.profile {
+    width: 100%;
+    color: var(--font-color);
+    margin: 10px 0;
+    align-items: center;
+    display: flex;
+}
+
+.picture {
+    width: 2.5rem;
+    height: 2.5rem;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.footer {
+    width: 100%;
+    display: flex;
+    margin: 0.5rem 0;
+
+    & i {
+        color: var(--font-color);
+        font-size: 1.7rem;
+        display: flex;
+        cursor: pointer;
+    }
+}
+
+
+
+.like {
+    color: #d21010 !important;
+    animation: clikedLike 200ms cubic-bezier(0.22, 0.61, 0.36, 1) normal;
+}
+
+.like-hidden {
+    display: none;
+}
+
+.like-animation {
+    display: flex;
+    width: 65px !important;
+    left: 40%;
+    position: absolute;
+    animation: setLike 1.5s forwards;
+}
+
+.username {
+    margin-left: 1rem;
+    font-size: 0.8rem;
+    font-weight: 600;
 }
 
 .content {
@@ -14,13 +68,25 @@
     position: relative;
     overflow-x: auto;
     display: flex;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
     width: 23rem;
+
+    & video {
+        height: 28rem;
+    }
 
     & img,
     video {
         object-fit: cover;
-        max-height: 30rem;
+        border-radius: 10px;
         width: 23rem;
+        scroll-snap-align: center;
+    }
+
+    & ::-webkit-scrollbar {
+        display: none;
     }
 }
 
@@ -28,6 +94,22 @@
     display: flex;
     align-items: center;
     position: relative;
+    border-bottom: 1px solid var(--border-color);
+    flex-direction: column;
+    overflow-y: hidden;
+}
+
+.sound {
+    bottom: 1.5rem;
+    right: 0.5rem;
+    z-index: 1;
+    font-size: 1.2rem;
+    border-radius: 50%;
+    padding: 3px;
+    display: flex;
+    color: var(--font-color);
+    position: absolute;
+    background-color: var(--background);
 }
 
 .button-left {
@@ -42,4 +124,51 @@
 .button-right {
     position: absolute;
     z-index: 1;
+    top: 50%;
+}
+
+@keyframes clikedLike {
+    0% {
+        transform: scale(1.3);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    70% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes setLike {
+    0% {
+        bottom: -100%
+    }
+
+    50% {
+        bottom: 50%;
+    }
+
+
+    80% {
+        bottom: 50%;
+        transform: rotate(10deg) scale(1.4);
+    }
+
+    90% {
+        transform: rotate(0turn) scale(1);
+        bottom: 100%;
+    }
+
+
+    100% {
+        bottom: 200%;
+
+    }
+
 }
