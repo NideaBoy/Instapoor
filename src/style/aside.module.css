@@ -34,7 +34,12 @@
 .sidebar__nav {
   overflow-x: hidden;
   overflow-y: auto;
+  scrollbar-width: none;
   height: calc(100% - 0.5rem - 53px - 36px - 2.5rem - 46px);
+
+  & ::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .sidebar__list {
