@@ -18,3 +18,7 @@
         height: 1rem;
     }
 }
+
+.slider__button-hidden {
+    visibility: hidden;
+}
