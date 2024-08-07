@@ -4,6 +4,8 @@ import { cnn } from "@/service/cnn";
 import HeaderHistory from "@/components/HeaderHistory";
 import IProfile from "@/interface/IProfile";
 import styles from "@/style/Home.module.css";
+import Loading from "@/components/Loading";
+import { wait } from "@/service/time";
 
 const inter = Inter({
   display: "block",
@@ -12,10 +14,12 @@ const inter = Inter({
 })
 
 export default async function Home() {
-  const PostContent = lazy(() => import("@/components/PostContent"))
+  const PostContent = lazy(() => wait(1000).then(() => import("@/components/PostContent")))
   const profile = await cnn.get("/users")
 
   return (
+
+
     <main className={inter.className}>
       <HeaderHistory>
         <ul className={styles.history__list}>
@@ -29,9 +33,11 @@ export default async function Home() {
           )}
         </ul>
       </HeaderHistory>
-      <Suspense fallback={<h1 >Hola</h1>}>
+      <Suspense fallback={<Loading />}>
+
         <PostContent />
       </Suspense>
     </main>
+
   );
 }
