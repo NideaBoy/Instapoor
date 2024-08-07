@@ -1,0 +1,27 @@
+.container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.loading {
+    background: var(--background);
+    border: 6px solid var(--border-color);
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    border-top: 6px var(--spin-color) solid;
+    animation: spin 600ms ease infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(1turn);
+    }
+
+    from {
+        transform: rotate(2turn);
+    }
+}
