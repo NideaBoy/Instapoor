@@ -46,7 +46,8 @@
 }
 
 .like-hidden {
-    display: none;
+    visibility: hidden;
+    position: absolute;
 }
 
 .like-animation {
@@ -72,6 +73,7 @@
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
     width: 23rem;
+    gap: 2px;
 
     & video {
         height: 28rem;
@@ -82,7 +84,7 @@
         object-fit: cover;
         border-radius: 10px;
         width: 23rem;
-        scroll-snap-align: center;
+        scroll-snap-align: var(--image-aling-scroll);
     }
 
     & ::-webkit-scrollbar {
